@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 gem 'simple_form'
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
