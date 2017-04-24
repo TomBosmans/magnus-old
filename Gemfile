@@ -21,6 +21,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'simple_form'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# A Rails engine that helps you put together a super-flexible admin dashboard.
+gem "administrate"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
