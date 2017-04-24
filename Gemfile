@@ -47,6 +47,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # An IRB alternative and runtime developer console
+  gem 'pry'
+  # A Ruby static code analyzer, based on the community Ruby style guide. http://rubocop.readthedocs.io
+  gem 'rubocop', '~> 0.46.0', require: false
+  # Annotate Rails classes with schema and routes info
+  gem 'annotate'
+  # Generate Entity-Relationship Diagrams for Rails applications http://voormedia.github.io/rails-erd/
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
