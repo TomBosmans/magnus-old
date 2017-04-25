@@ -22,7 +22,9 @@ gem 'simple_form'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 # A Rails engine that helps you put together a super-flexible admin dashboard.
-gem "administrate"
+gem 'administrate'
+# Easy file attachment management for ActiveRecord
+gem 'paperclip'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

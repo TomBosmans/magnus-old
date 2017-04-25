@@ -10,6 +10,7 @@ class SettingDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     application_name: Field::String,
+    header_image: UploadField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -26,14 +27,16 @@ class SettingDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :application_name
+    :application_name,
+    :header_image
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :application_name
+    :application_name,
+    :header_image
   ].freeze
 
   def display_resource(_setting)
