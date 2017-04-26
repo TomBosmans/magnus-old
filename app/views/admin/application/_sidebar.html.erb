@@ -8,6 +8,12 @@ as defined by the routes in the `admin/` namespace
 %>
 
 <ul class="sidebar__list">
+  <li>
+    <%= image_tag current_user.avatar.url %>
+  </li>
+
+  <hr/>
+
   <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
     <li>
       <%= link_to(

@@ -5,8 +5,8 @@ class UploadField < Administrate::Field::Base
     data.url
   end
 
-  def thumbnail
-    data.url(:thumbnail)
+  def small
+    data.url(:small)
   end
 
   def to_s
