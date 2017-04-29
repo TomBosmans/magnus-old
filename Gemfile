@@ -11,25 +11,28 @@ gem 'rails', '~> 5.0.2'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
+# Use SASS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
-#gem 'simple_form'
+# gem 'simple_form'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 gem 'administrate'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip'
-
-gem 'bourbon'                                                                                               
-gem 'neat'                                                                                                
-gem 'bitters'                                                                                                  
-gem 'refills'
+# Template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
+gem 'slim'
+# Slim templates generator for Rails 3, 4 and 5
+gem 'slim-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -19,7 +19,7 @@
 class Setting < ApplicationRecord
   # Attributes
   has_attached_file :header_image
-  has_attached_file :logo, styles: { large: "500x500", medium: "300x300", small: "100x100" }, default_url: "https://raw.githubusercontent.com/thoughtbot/empties/master/source/images/placeholder.png"
+  has_attached_file :logo, styles: { large: '500x500', medium: '300x300', small: '100x100' }, default_url: 'https://raw.githubusercontent.com/thoughtbot/empties/master/source/images/placeholder.png'
 
   # Validations
   validates :application_name, presence: true

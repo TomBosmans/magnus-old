@@ -32,7 +32,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   # Attributes
-  has_attached_file :avatar, styles: { large: "500x500", medium: "300x300", small: "100x100" }, default_url: ":gravatar"
+  has_attached_file :avatar, styles: { large: '500x500', medium: '300x300', small: '100x100' }, default_url: ':gravatar'
 
   # Validations
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
