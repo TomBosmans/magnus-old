@@ -1,0 +1,52 @@
+.sidebar
+  flex: 0 0 auto
+  width: $sidebar-width
+  overflow-y: auto
+  background-color: tint($base-color, 5%)
+  
+  h1, a
+    color: #ffff
+
+  h1
+    height: $navbar-height
+    +padding(10px null 10px)
+    text-align: right
+    font-size: 2em
+    background-color: $base-color
+
+  .sidebar__link--active,
+  .sidebar__link:hover
+    background-color: shade($primary-color, 70%)
+    border-left: 3px solid $primary-color
+
+  .sidebar__link
+    display: block
+    padding: $base-spacing
+    margin-top: 2px
+    transition: color 0.05s linear
+  
+  .settings:before
+    font-family: FontAwesome
+    content: "\f085"
+    padding-right: 5px
+
+  .users:before
+    font-family: FontAwesome
+    content: "\f0c0"
+    padding-right: 5px
+
+  .logout
+    +padding(null null 5px $base-spacing)
+    text-decoration: none
+    position: absolute
+    bottom: 0
+    &:before
+      font-family: FontAwesome
+      content: "\f08b"
+      padding-right: 5px
+
+    transition: color .4s
+    color: shade($primary-color, 10%)
+    &:hover
+      text-decoration: none
+      color: tint($primary-color, 10%)

@@ -8,6 +8,11 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_user!
     before_filter :default_params
+    helper_method :settings
+
+    def settings
+      Setting.first
+    end
 
     private
 
