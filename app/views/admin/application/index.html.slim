@@ -34,6 +34,9 @@ header class="header"
               [:new, namespace, page.resource_name],
               class: "button") if valid_action? :new
 
-= render "collection", collection_presenter: page, resources: resources
+- if page.attribute_types.include?(:position)
+  = render "collection_sortable", collection_presenter: page, resources: resources
+- else
+  = render "collection", collection_presenter: page, resources: resources
 
 = paginate resources
