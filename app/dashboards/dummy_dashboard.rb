@@ -11,6 +11,7 @@ class DummyDashboard < Administrate::BaseDashboard
     id: Field::Number,
     position: PositionField,
     name: Field::String,
+    text: CkEditorField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -31,6 +32,7 @@ class DummyDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :position,
     :name,
+    :text,
     :created_at,
     :updated_at,
   ].freeze
@@ -40,6 +42,7 @@ class DummyDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :name,
+    :text,
   ].freeze
 
   # Overwrite this method to customize how dummies are displayed

@@ -32,8 +32,8 @@ gem 'administrate'
 gem 'paperclip'
 # Template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
 gem 'slim'
-# Slim templates generator for Rails 3, 4 and 5
-gem 'slim-rails'
+# Ckeditor integration gem for rails http://ckeditor.com/
+gem 'ckeditor'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
