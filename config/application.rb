@@ -13,5 +13,8 @@ module Magnus
     # -- all .rb files in that directory are automatically loaded.
     
     config.sass.preferred_syntax = :sass
+    config.to_prepare do
+      Administrate::ApplicationController.helper Magnus::Application.helpers
+    end
   end
 end
