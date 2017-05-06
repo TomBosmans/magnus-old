@@ -1,12 +1,28 @@
-nav
-  margin-left: $sidebar-width
+.navbar
   height: $navbar-height
   background-color: $base-color
   width: 100%
   position: fixed
 
-  h1
-    color: $primary-color
-    +padding(10px null 10px)
-    font-size: 2em
+  .title
+    display: flex
+    .application_name
+      width: $sidebar-width
+      text-align: right
+      color: #fff
+      +padding(10px null 10px)
+      font-size: 2em
+
+    .content_for
+      color: $primary-color
+      +padding(10px null 10px)
+      font-size: 2em
+
+  .main
+    width: 100%
+    text-align: right
+    img
+      +padding(5px 20px 5px)
+      height: 100%
+      border-radius: 50%
 

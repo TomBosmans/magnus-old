@@ -1,10 +1,11 @@
 .sidebar
   flex: 0 0 auto
   width: $sidebar-width
+  margin-top: $navbar-height
   overflow-y: auto
   background-color: tint($base-color, 5%)
   
-  h1, a
+  a
     color: #ffff
 
   h1
@@ -14,8 +15,18 @@
     font-size: 2em
     background-color: $base-color
 
-  .sidebar__link--active,
+  h1
+    height: $navbar-height
+    +padding(10px null 10px)
+    text-align: right
+    font-size: 2em
+    background-color: $base-color
+
   .sidebar__link:hover
+    background-color: shade($primary-color, 60%)
+    border-left: 3px solid tint($primary-color, 10%)
+    transition: all 200ms ease-in-out
+  .sidebar__link--active
     background-color: shade($primary-color, 70%)
     border-left: 3px solid $primary-color
 
@@ -36,7 +47,7 @@
     padding-right: 5px
 
   .logout
-    +padding(null null 5px $base-spacing)
+    +padding(null null $base-spacing $base-spacing*2)
     text-decoration: none
     position: absolute
     bottom: 0

@@ -2,16 +2,11 @@ doctype html
 html
   head
     meta content="width=device-width, initial-scale=1" name="viewport"
-
     title= settings.application_name
-
     = csrf_meta_tags
-
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  
   body
     p.notice= notice
     p.alert= alert
-
     = yield
