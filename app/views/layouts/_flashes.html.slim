@@ -1,0 +1,8 @@
+- if flash.any?
+  .flashes
+    - flash.each do |type, message|
+      .flash
+        .icon class="#{type}"
+          i class="fa #{flash_icon_for(type)}"          
+        .message
+          = message

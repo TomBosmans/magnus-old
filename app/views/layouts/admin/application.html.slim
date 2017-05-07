@@ -27,7 +27,6 @@ html
         = render "sidebar"
       main class="main-content" role="main"
         = content_for(:search)
-        = render "flashes"
         = yield
-
+      = render "layouts/flashes"
       = render "javascript"
