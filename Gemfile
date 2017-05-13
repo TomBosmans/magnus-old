@@ -13,6 +13,7 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 # Use SASS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem "autoprefixer-rails"
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'

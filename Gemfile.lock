@@ -262,6 +262,7 @@ PLATFORMS
 DEPENDENCIES
   administrate
   annotate
+  autoprefixer-rails
   bitters
   bourbon
   byebug
