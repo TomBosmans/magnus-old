@@ -21,10 +21,8 @@ html
     = csrf_meta_tags
   body
     div class="app-container"
-      nav class="navbar"
-        = render "navbar"
-      div class="sidebar"
-        = render "sidebar"
+      = render "navbar"
+      = render "sidebar"
       main class="main-content" role="main"
         = content_for(:search)
         = yield

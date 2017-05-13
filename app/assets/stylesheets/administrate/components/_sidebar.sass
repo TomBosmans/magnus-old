@@ -45,19 +45,3 @@
     font-family: FontAwesome
     content: "\f0c0"
     padding-right: 5px
-
-  .logout
-    +padding(null null $base-spacing $base-spacing*2)
-    text-decoration: none
-    position: absolute
-    bottom: 0
-    &:before
-      font-family: FontAwesome
-      content: "\f08b"
-      padding-right: 5px
-
-    transition: color .4s
-    color: shade($primary-color, 10%)
-    &:hover
-      text-decoration: none
-      color: tint($primary-color, 10%)
