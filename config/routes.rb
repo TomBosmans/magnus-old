@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     root to: 'settings#index'
 
     resources :settings
+    resources :maps
     resources :users
     resources :dummies do
       put :sort, on: :collection
