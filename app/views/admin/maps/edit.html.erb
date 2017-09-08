@@ -1,0 +1,30 @@
+<% content_for(:title) { "#{t("administrate.actions.edit")} #{page.page_title}" } %>
+
+<header class="header">
+  <h1 class="header__heading"><%= content_for(:title) %></h1>
+  <div class="header__actions">
+    <%= link_to(
+      "#{t("administrate.actions.show")} #{page.page_title}",
+      [namespace, page.resource],
+      class: "button",
+    ) if valid_action? :show %>
+  </div>
+</header>
+
+
+<div id='map' data-map='edit'>
+  <%= form_for([namespace, page.resource], html: { class: "form" }) do |form| %>
+    <div id='address_form'>
+      <%= render partial: 'address_form', locals: { address: form.object.addresses.new } %>  
+    </div>
+    <div id='map_form'>
+      <%= render partial: 'map_form', locals: { form: form } %>
+    </div>
+  <% end %>
+
+  <div id='map_canvas'></div>
+
+  <% page.resource.addresses.each do |address| %>
+    <div data-marker="<%= address.id %>" data-lat="<%= address.latitude %>" data-lng="<%= address.longitude %>"></div>
+  <% end %>
+</div>
