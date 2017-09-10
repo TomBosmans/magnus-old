@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class MapDashboard < Administrate::BaseDashboard
+class AddressDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,10 +8,13 @@ class MapDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    map: Field::HasOne,
     id: Field::Number,
     name: Field::String,
+    info: Field::String,
     latitude: Field::Number.with_options(decimals: 2),
     longitude: Field::Number.with_options(decimals: 2),
+    map_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,18 +25,22 @@ class MapDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :map,
     :id,
     :name,
-    :latitude,
+    :info,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :map,
     :id,
     :name,
+    :info,
     :latitude,
     :longitude,
+    :map_id,
     :created_at,
     :updated_at,
   ].freeze
@@ -42,19 +49,18 @@ class MapDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :map,
     :name,
+    :info,
     :latitude,
     :longitude,
+    :map_id,
   ].freeze
 
-  # Overwrite this method to customize how maps are displayed
+  # Overwrite this method to customize how addresses are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(map)
-    "Map ##{map.name}"
-  end
-
-  def permitted_attributes
-   super + [addresses_attributes: [:id, :latitude, :longitude, :name, :_destroy]]
-  end
+  # def display_resource(address)
+  #   "Address ##{address.id}"
+  # end
 end

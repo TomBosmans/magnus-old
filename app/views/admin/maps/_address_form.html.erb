@@ -1,0 +1,37 @@
+<%= fields_for address do |form| %>
+  <div class="field-unit field-unit--string">
+    <div class='field-unit__label'>
+      <%= form.label :name %>
+    </div>
+    <div class='field-unit__field'>
+      <%= form.text_field :name %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class='field-unit__label'>
+      <%= form.label :info %>
+    </div>
+    <div class='field-unit__field'>
+      <%= form.text_field :info %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class='field-unit__label'>
+      <%= form.label :latitude %>
+    </div>
+    <div class='field-unit__field'>
+      <%= form.text_field :latitude %>
+    </div>
+  </div>
+
+  <div class="field-unit field-unit--string">
+    <div class='field-unit__label'>
+      <%= form.label :longitude %>
+    </div>
+    <div class='field-unit__field'>
+      <%= form.text_field :longitude %>
+    </div>
+  </div>
+<% end %>

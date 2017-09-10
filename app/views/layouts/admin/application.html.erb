@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="ROBOTS" content="NOODP">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <title> <%= "#{content_for(:title)} | #{Rails.application.class.parent_name.titlecase}" %></title>
+  <%= render "stylesheet" %>
+  <%= csrf_meta_tags %>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+  <div class='app-container'>
+    <%= render 'navbar' %>
+    <%= render 'sidebar' %>
+    <div id='main' class='main-content' role='main'>
+      <%= content_for(:search) %>
+      <%= yield %>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5zMrZRSktiopOVFgCpqBGlK5_AdGAN0&libraries=places" async defer></script>
+  <%= render 'components/flashes' %>
+  <%= render 'javascript' %>
+</body>
+
+</html>

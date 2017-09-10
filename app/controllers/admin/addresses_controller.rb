@@ -1,24 +1,18 @@
 module Admin
-  class MapsController < Admin::ApplicationController
+  class AddressesController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:
     #
     # def index
     #   super
-    #   @resources = Map.
+    #   @resources = Address.
     #     page(params[:page]).
     #     per(10)
     # end
 
-    # def update
-    #   binding.pry
-    #   super
-    #   binding.pry
-    # end
-
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   Map.find_by!(slug: param)
+    #   Address.find_by!(slug: param)
     # end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
