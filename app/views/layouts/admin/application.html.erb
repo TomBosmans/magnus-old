@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="ROBOTS" content="NOODP">
+  <meta name="viewport" content="initial-scale=1">
+  <title>
+    <%= content_for(:title) %> - <%= settings.application_name %>
+  </title>
+  <%= render "stylesheet" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "icons" %>
+
+  <div class="app-container">
+    <%= render "navbar" -%>
+    <%= render "sidebar" -%>
+
+    <main class="main-content" role="main">
+      <%= yield %>
+    </main>
+  </div>
+
+  <%= render "flashes" -%>
+  <%= render "javascript" %>
+</body>
+</html>

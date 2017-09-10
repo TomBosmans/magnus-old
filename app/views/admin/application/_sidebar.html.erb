@@ -1,0 +1,9 @@
+<nav class="sidebar" role="navigation">
+  <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
+    <%= link_to(
+      display_resource_name(resource),
+      [namespace, resource.path],
+      class: "sidebar__link sidebar__link--#{nav_link_state(resource)} #{resource}"
+    ) %>
+  <% end %>
+</nav>

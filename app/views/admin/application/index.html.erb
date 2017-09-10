@@ -1,0 +1,19 @@
+<% content_for(:title) do %>
+  <%= display_resource_name(page.resource_name) %>
+<% end %>
+
+<header class="main-content__header" role="banner">
+  <% if show_search_bar %>
+    <%= render "search", search_term: search_term, resource_name: display_resource_name(page.resource_name) %>
+  <% end %>
+</header>
+
+<section class="main-content__body main-content__body--flush">
+  <% if page.attribute_types.include?(:position) %>
+    <%= render "collection_sortable", collection_presenter: page, resources: resources %>
+  <% else %>
+    <%= render "collection", collection_presenter: page, resources: resources, table_title: "page-title" %>
+  <% end %>
+  <%= paginate resources %>
+</section>
+

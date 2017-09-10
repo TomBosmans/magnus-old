@@ -1,7 +1,3 @@
-<!-- / This is a custom collection that has a sortable table.
-/ You need to add a column position to your db table to trigger this.
-/ This is a WIP so be warned! -->
-
 <table class="collection-data" aria-labelledby="page-title">
   <thead>
     <tr>
@@ -16,8 +12,17 @@
           ).titleize %>
         </th>
       <% end %>
-      <% [valid_action?(:edit), valid_action?(:destroy)].count(true).times do %>
-        <th scope="col"></th>
+      <% actions = [valid_action?(:edit), valid_action?(:destroy)] %>
+      <% actions.count(true).times do |index| %>
+        <% if index == actions.count - 1 && valid_action?(:new) %>
+          <th>
+            <%= link_to [:new, namespace, collection_presenter.resource_path], class: 'button' do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            <% end %>
+          </th>
+        <% else %>
+          <th scope="col"></th>
+        <% end %>
       <% end %>
     </tr>
   </thead>

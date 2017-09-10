@@ -1,0 +1,51 @@
+$_search-icon-size: 1rem
+
+.search
+  @include padding(null $base-spacing)
+  align-items: center
+  border-bottom: $base-border
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  position: relative
+  width: 100%
+  height: 60px
+
+.search__input
+  appearance: none
+  border: 0
+  box-shadow: none
+  flex-grow: 1
+  margin: 0
+  &:focus
+    box-shadow: none
+  padding-left: $_search-icon-size * 2.5
+  padding-right: $_search-icon-size * 2.5
+
+.search__eyeglass-icon
+  fill: $grey-7
+  height: $_search-icon-size
+  left: $_search-icon-size
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  width: $_search-icon-size
+
+.search__clear-link
+  height: $_search-icon-size
+  position: absolute
+  right: $_search-icon-size * 0.75
+  top: 50%
+  transform: translateY(-50%)
+  width: $_search-icon-size
+
+.search__clear-icon
+  fill: $grey-5
+  height: $_search-icon-size
+  position: absolute
+  transition: fill $base-duration $base-timing
+  width: $_search-icon-size
+
+  &:hover
+    fill: $action-color
+

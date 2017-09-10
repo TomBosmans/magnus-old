@@ -1,0 +1,14 @@
+<% if flash.any? %>
+  <div id='flashes'>
+    <% flash.each do |type, message| %>
+      <div class='flash'>
+        <div class='icon <%= type %>'>
+          <i class='fa <%= flash_icon_for(type) %>'></i>
+        </div>
+        <div class='message'>
+          <%= message %>  
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

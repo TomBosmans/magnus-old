@@ -1,8 +1,0 @@
-nav class="navbar"
-  .title
-    h1 class="application_name"= settings.application_name
-    h1 class="content_for"= content_for(:title)
-  
-  .navigation
-    = link_to destroy_user_session_path, method: :delete, class: 'logout' do
-      i class="fa fa-sign-out" aria-hidden="true"
