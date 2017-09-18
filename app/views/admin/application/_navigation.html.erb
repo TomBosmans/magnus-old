@@ -1,0 +1,11 @@
+<nav class="navigation" role="navigation">
+  <div class='navigation__group'>
+    <% Namespace.new(namespace).main_resources.each do |resource| %>
+      <%= link_to(
+        display_resource_name(resource),
+        [namespace, resource.path],
+        class: "navigation__link navigation__link--#{nav_link_state(resource)} #{resource}"
+      ) %>
+    <% end %>
+  </div>
+</nav>

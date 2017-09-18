@@ -1,0 +1,10 @@
+<%= f.text_field field.attribute,
+      class: "field-unit__field #{'error' if input_error?(field.resource, field.attribute) }",
+      placeholder: "#{field.attribute}",
+      required: input_required?(field.resource, field.attribute) %>
+
+<%= f.label field.attribute, class: 'field-unit__placeholder' %>
+
+<% field.resource.errors[field.attribute].each do |message| %>
+  <div class='field-unit__info'><%= message %></div>
+<% end %>

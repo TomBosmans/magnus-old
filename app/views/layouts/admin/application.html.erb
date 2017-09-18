@@ -14,10 +14,9 @@
   <%= render "icons" %>
 
   <div class="app-container">
-    <%= render "navbar" -%>
-    <%= render "sidebar" -%>
-
+    <%= render "header" -%>
     <main class="main-content" role="main">
+      <%= render "navigation" -%>
       <%= yield %>
     </main>
   </div>

@@ -1,0 +1,40 @@
+.header
+  position: fixed
+  z-index: 1
+  background-color: $primary-color
+  box-shadow: 0 2px 5px rgba(0,0,0,.26)
+  width: 100%
+  height: 56px
+  padding-left: 15px
+  padding-right: 15px
+  font-size: 24px
+
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  justify-content: space-between
+  align-items: center
+
+  &__left,
+  &__middle,
+  &__right
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: flex-start
+    align-items: baseline
+
+  &__left
+    &__navigation-button
+      background: none
+      border: none
+      box-shadow: none
+      min-width: none
+      color: $primary-color-text
+      margin-right: 40px
+      cursor: pointer
+
+    &__title
+      color: $primary-color-text
+      text-transform: uppercase
+      font-weight: 500

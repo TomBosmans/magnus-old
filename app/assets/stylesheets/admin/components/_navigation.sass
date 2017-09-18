@@ -1,0 +1,49 @@
+.navigation
+  height: 100%
+  width: 240px
+  position: fixed
+  background-color: $base-color
+
+  display: flex
+  flex-direction: column
+  flex-wrap: nowrap
+  justify-content: flex-start
+  align-items: flex-start
+
+  &.left-slide-in
+    animation: left-slide-in 0.5s forwards
+
+  &.left-slide-out
+    animation: left-slide-out 0.5s forwards
+
+  &__group
+    padding: 14px 0
+    border-bottom: 1px solid $base-dark-color
+
+  &__link
+    width: 192px
+    height: 40px
+    padding: 0 24px
+    color: $primary-text-color
+    background-color: $base-color
+    display: flex
+    align-items: center
+    text-decoration: none
+    font-size: 14px
+    font-weight: 400
+
+    &:before
+      color: $secondary-text-color
+      margin-right: 27px
+      font-size: 16px
+
+    &:hover
+      background-color: $base-dark-color
+
+.settings:before
+  font-family: FontAwesome
+  content: "\f085"
+
+.users:before
+  font-family: FontAwesome
+  content: "\f0c0"
