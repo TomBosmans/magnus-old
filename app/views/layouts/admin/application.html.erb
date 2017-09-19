@@ -11,12 +11,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "icons" %>
-
   <div class="app-container">
     <%= render "header" -%>
+    <%= render "navigation" -%>
+    <div class='overlay'></div>
     <main class="main-content" role="main">
-      <%= render "navigation" -%>
       <%= yield %>
     </main>
   </div>

@@ -1,9 +1,10 @@
-.navigation
+.navigation  
   height: 100%
   width: 240px
   position: fixed
+  z-index: 1
+  padding-top: 56px
   background-color: $base-color
-
   display: flex
   flex-direction: column
   flex-wrap: nowrap
@@ -15,6 +16,19 @@
 
   &.left-slide-out
     animation: left-slide-out 0.5s forwards
+
+  &__header
+    display: none
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: center
+    padding-left: 16px
+    height: 56px
+    &__title
+      color: $primary-text-color
+      text-transform: uppercase
+      font-size: 24px
+      font-weight: 500
 
   &__group
     padding: 14px 0
@@ -31,25 +45,36 @@
     text-decoration: none
     font-size: 14px
     font-weight: 400
-
     &:before
       color: $secondary-text-color
       margin-right: 27px
       font-size: 16px
-
     &:hover
       background-color: $base-dark-color
-
     &--active
       font-weight: 500
-
       &:before
         color: $primary-color
 
-.settings:before
-  font-family: FontAwesome
-  content: "\f085"
+  &__button
+    background: none
+    box-shadow: none
+    color: $primary-text-color
+    margin-right: 40px
+    border-radius: 50%
+    height: 35px
+    width: 35px
+    font-size: 24px
 
-.users:before
-  font-family: FontAwesome
-  content: "\f0c0"
+  @media (max-width: $mobile-breakpoint)
+    z-index: 3
+    display: none
+    padding-top: 0
+    &.left-slide-in
+      display: inherit
+      & + .overlay
+        display: inherit
+    &.left-slide-out
+      display: inherit
+    &__header
+      display: flex

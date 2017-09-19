@@ -1,8 +1,12 @@
 .main-content
   padding-top: 56px
+  height: 100%
+
   &__body
-    padding-left: 240px
-    padding-right: 240px
     display: flex
     align-items: center
     justify-content: center
+
+    @media (min-width: $mobile-breakpoint)
+      padding-left: 240px
+      padding-right: 240px
