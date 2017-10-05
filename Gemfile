@@ -67,5 +67,10 @@ group :development do
   gem 'rails-erd'
 end
 
+group :test do
+  # A library for setting up Ruby objects as test data
+  gem 'factory_girl'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

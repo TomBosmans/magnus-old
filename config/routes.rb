@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
     resources :settings
     resources :users
+    resources :groups
+    resources :articles
     resources :dummies do
       put :sort, on: :collection
     end
