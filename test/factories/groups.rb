@@ -14,12 +14,9 @@
 #  index_groups_on_group_item_id  (group_item_id)
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  description: MyString
-
-two:
-  name: MyString
-  description: MyString
+FactoryGirl.define do
+  factory :group do
+    name 'Group'
+    description 'This is a default group'
+  end
+end

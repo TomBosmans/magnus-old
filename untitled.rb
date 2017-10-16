@@ -18,7 +18,28 @@ class Group < ApplicationRecord
   def items
     group_items.map(&:groupable)
   end
+
+  def items_alias
+    name.downcase.gsub(/[^a-z]/, '') unless name.blank?
+  end
+
+  # library = Group.create(name: books); Book.create(group: group); library.books
+  def method_missing(method, *args)
+    return items if method.to_s == items_alias
+    super
+  end
+
+  def respond_to?(method, include_private = false)
+    method.to_s == items_alias ||
+    super
+  end
+
+  def respond_to_missing?(method, include_private = false)
+    method.to_s == items_alias ||
+    super
+  end
 end
+
 
 # app/models/group_item.rb
 class GroupItem < ApplicationRecord
