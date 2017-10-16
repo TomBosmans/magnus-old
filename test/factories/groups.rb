@@ -16,7 +16,7 @@
 
 FactoryGirl.define do
   factory :group do
-    name 'Group'
+    name 'items'
     description 'This is a default group'
   end
 end
