@@ -1,5 +1,6 @@
 # To test the groupable concern independently we use a tmp class Book that has
 # the Groupable module included and has an alias_attribute library for group.
+# For more details check test/shared/groupable_book.rb
 
 require 'test_helper'
 
