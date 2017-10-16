@@ -4,12 +4,7 @@
 require 'test_helper'
 
 describe Groupable do
-  let(:library) { FactoryGirl.create(:group, name: :library) }
-  let(:book_1) {  Book.create(group: library) }
-  let(:book_2) { Book.create(group: library) }
-
-  before(:all) { create_table }
-  after(:all) { drop_table }
+  include GroupableBook
 
   describe '.create' do
     it 'responds to create' do
@@ -92,21 +87,5 @@ describe Groupable do
     it 'has a group_item id' do
       assert book_1.group_item_id.present?
     end
-  end
-
-  class Book < ApplicationRecord
-    include Groupable
-    alias_attribute :library, :group
-    self.table_name = 'tmp_books'
-  end
-
-  def create_table
-    ActiveRecord::Base.connection.create_table :tmp_books do |t|
-      t.references :group_item
-    end
-  end
-
-  def drop_table
-    ActiveRecord::Base.connection.drop_table :tmp_books
   end
 end
