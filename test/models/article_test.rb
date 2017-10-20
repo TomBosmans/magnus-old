@@ -4,7 +4,6 @@
 #
 #  id                     :integer          not null, primary key
 #  created_by_id          :integer
-#  group_item_id          :integer
 #  name                   :string
 #  description            :string
 #  thumbnail_file_name    :string
@@ -17,7 +16,6 @@
 # Indexes
 #
 #  index_articles_on_created_by_id  (created_by_id)
-#  index_articles_on_group_item_id  (group_item_id)
 #
 
 require 'test_helper'
