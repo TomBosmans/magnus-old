@@ -17,11 +17,25 @@
 require 'test_helper'
 
 describe Group do
-  # For the test we are using a variable named library
-  # That is a group with the name books.
-  let(:library) { FactoryGirl.create(:group, name: :books) }
-  let(:library_group) { FactoryGirl.create(:group, name: :libraries) }
-  
+  include GroupableBook
+
+  describe '#destroy' do
+    it 'responds to destroy' do
+      assert library.respond_to? :destroy
+    end
+
+    it 'destroys the group' do
+      library.destroy
+      assert library.destroyed?
+    end
+
+    it 'destroys the group items' do
+      4.times { Book.create(group: library) }
+      library.destroy
+      assert library.group_items.empty?
+    end
+  end
+
   describe '#name' do
     it 'responds to name' do
       assert library.respond_to? :name
@@ -44,6 +58,21 @@ describe Group do
     it 'responds to items_alias' do
       assert library.respond_to? :items_alias
     end
+
+    it 'it only returns a string with a-z, underscores and numbers' do
+      library.name = '}<-/sPec??iaL)*)" bo#&%^oK--s+='
+      assert library.items_alias == 'special_books'
+    end
+
+    it 'replaces spaces with underscore' do
+      library.name = 'hallo world'
+      assert library.items_alias == 'hallo_world'
+    end
+
+    it 'allows numbers' do
+      library.name = 'books2'
+      assert library.items_alias == 'books2'
+    end
   end
 
   describe '#group_items' do
@@ -62,7 +91,7 @@ describe Group do
     end
 
     it 'returns the same as items' do
-      4.times { library_group.group_items.create }
+      4.times { Book.create(group: library) }
       assert library.items == library.books
     end
   end

@@ -5,7 +5,7 @@ module GroupableBook
   extend ActiveSupport::Concern
 
   included do
-    let(:library) { FactoryGirl.create(:group, name: :library) }
+    let(:library) { FactoryGirl.create(:group, name: :books) }
     let(:book_1) {  Book.create(group: library) }
     let(:book_2) { Book.create(group: library) }
 
@@ -21,9 +21,7 @@ class Book < ApplicationRecord
 end
 
 def create_table
-  ActiveRecord::Base.connection.create_table :tmp_books do |t|
-    t.references :group_item
-  end
+  ActiveRecord::Base.connection.create_table :tmp_books
 end
 
 def drop_table

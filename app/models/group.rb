@@ -16,14 +16,15 @@
 
 class Group < ApplicationRecord
   include Groupable
-  has_many :group_items
+  has_many :group_items, dependent: :destroy
 
   def items
     group_items.map(&:groupable)
   end
 
   def items_alias
-    name.downcase.gsub(/[^a-z]/, '') unless name.blank?
+    return if name.blank?
+    name.downcase.gsub(/\s/, '_').gsub(/[^a-z_0-9]/, '')
   end
 
   # The idea is that if you create a group and name it to what it contains

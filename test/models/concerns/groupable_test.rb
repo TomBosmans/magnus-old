@@ -79,14 +79,4 @@ describe Groupable do
       assert book_1.group_item.present?
     end
   end
-
-  describe '#group_item_id' do
-    it 'responds to group_item_id' do
-      assert book_1.respond_to? :group_item_id
-    end
-
-    it 'has a group_item id' do
-      assert book_1.group_item_id.present?
-    end
-  end
 end
