@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502185207) do
+ActiveRecord::Schema.define(version: 20171112190427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string   "content"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -34,6 +46,23 @@ ActiveRecord::Schema.define(version: 20170502185207) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "text"
+  end
+
+  create_table "group_items", force: :cascade do |t|
+    t.integer  "group_id"
+    t.string   "groupable_type"
+    t.integer  "groupable_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["group_id"], name: "index_group_items_on_group_id", using: :btree
+    t.index ["groupable_type", "groupable_id"], name: "index_group_items_on_groupable_type_and_groupable_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "settings", force: :cascade do |t|
@@ -71,4 +100,5 @@ ActiveRecord::Schema.define(version: 20170502185207) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "group_items", "groups"
 end

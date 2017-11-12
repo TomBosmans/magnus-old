@@ -48,6 +48,14 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Testing framework
+  gem 'minitest-spec-rails'
+  # A library for setting up Ruby objects as test data
+  gem 'factory_girl_rails'
+  # Create temporary table-backed ActiveRecord models for use in tests
+  gem 'temping'
+  # Debugging tool
+  gem 'pry'
 end
 
 group :development do
