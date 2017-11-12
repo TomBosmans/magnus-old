@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: articles
@@ -14,9 +13,13 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-class Article < ApplicationRecord
-  include Groupable
 
-  has_attached_file :thumbnail, styles: { large: '600x600', medium: '200x200', small: '75x75' }
-  validates_attachment_content_type :thumbnail, content_type: %r{\Aimage/.*\z}
+FactoryGirl.define do
+  factory :article do
+    title 'The fall of cadia'
+    description 'Let it be known the planet broke before the guard'
+    thumbnail_file_name 'fall_of_cadia.jpg'
+    thumbnail_content_type 'image/jpeg'
+    thumbnail_file_size 124
+  end
 end

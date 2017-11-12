@@ -10,22 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930115357) do
+ActiveRecord::Schema.define(version: 20171112190427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "created_by_id"
-    t.string   "name"
+    t.string   "title"
     t.string   "description"
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.string   "content"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.index ["created_by_id"], name: "index_articles_on_created_by_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -101,5 +100,5 @@ ActiveRecord::Schema.define(version: 20170930115357) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "articles", "users", column: "created_by_id"
+  add_foreign_key "group_items", "groups"
 end

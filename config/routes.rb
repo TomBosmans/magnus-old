@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Route Map
 #
 #               Prefix Verb   URI Pattern                        Controller#Action
@@ -35,8 +36,6 @@ Rails.application.routes.draw do
 
     resources :settings
     resources :users
-    resources :groups
-    resources :articles
     resources :dummies do
       put :sort, on: :collection
     end
