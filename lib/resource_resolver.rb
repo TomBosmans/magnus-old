@@ -15,6 +15,10 @@ class ResourceResolver
     controller_path_parts.first
   end
 
+  def dashboard
+   ActiveSupport::Inflector.constantize("#{resource_class}Dashboard")
+  end
+
   private
 
   def controller_path_parts
@@ -24,10 +28,10 @@ class ResourceResolver
   def model_path_parts
     parts = controller_path_parts[1..-1]  # remove namespace part
     parts[-1] = parts.last.singularize    # singularize last part
-    parts.map(&:camelize)                 # Camelize the parts
+    parts
   end
 
   def resource_class_name
-    model_path_parts.join("::")
+    model_path_parts.map(&:camelize).join("::")
   end
 end
