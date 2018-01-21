@@ -25,7 +25,7 @@ describe Group do
     end
 
     it 'destroys the group items' do
-      4.times { Book.create(group: library) }
+      4.times { GroupableBook::Book.create(group: library) }
       library.destroy
       assert library.group_items.empty?
     end
@@ -86,7 +86,7 @@ describe Group do
     end
 
     it 'returns the same as items' do
-      4.times { Book.create(group: library) }
+      4.times { GroupableBook::Book.create(group: library) }
       assert library.items == library.books
     end
   end

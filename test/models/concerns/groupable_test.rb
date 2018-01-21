@@ -9,17 +9,17 @@ describe Groupable do
 
   describe '.create' do
     it 'responds to create' do
-     assert  Book.respond_to? :create
+      assert GroupableBook::Book.respond_to? :create
     end
 
     it 'does not need a group' do
       # Why has `Book.create` library as group?
-      book = Book.create(group: nil)
+      book = GroupableBook::Book.create(group: nil)
       assert_nil book.group
     end
 
     it 'can have a group' do
-      book = Book.create(group: library)
+      book = GroupableBook::Book.create(group: library)
       assert_equal book.library, library
     end
   end
@@ -27,26 +27,26 @@ describe Groupable do
   describe '.where_group' do
     # Need to call book_1, book_2 before the query, else they are not created.
     let(:book_ids) { [book_1.id, book_2.id] }
-    let(:library_book_ids) { Book.order(:id).where_group(library.id).pluck(:id) }
+    let(:library_book_ids) { GroupableBook::Book.order(:id).where_group(library.id).pluck(:id) }
 
     it 'responds to where_group' do
-      assert Book.respond_to? :where_group
+      assert GroupableBook::Book.respond_to? :where_group
     end
-    
+
     it 'returns all books where group equals the id' do
       assert_equal book_ids, library_book_ids
     end
 
     it 'does not return other books' do
       library_2 = FactoryGirl.create(:group)
-      book_3 = Book.create(group: library_2)
-      book_4 = Book.create
+      book_3 = GroupableBook::Book.create(group: library_2)
+      book_4 = GroupableBook::Book.create
       assert_equal book_ids, library_book_ids
     end
 
     it 'can be empty' do
       library_2 = FactoryGirl.create(:group)
-      assert Book.where_group(library_2.id).empty?
+      assert GroupableBook::Book.where_group(library_2.id).empty?
     end
   end
 
@@ -64,7 +64,7 @@ describe Groupable do
     it 'responds to library' do
       assert book_1.respond_to? :library
     end
- 
+
     it 'returns the group' do
       assert_equal book_1.library, library
     end
