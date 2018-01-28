@@ -1,47 +1,44 @@
-require 'dashboard/attribute'
-
 module Dashboard
   class Base
-    def self.attribute(new_attributes={})
-      new_attributes.each do |name, type|
-        attributes << Dashboard::Attribute.new(name, type: type)
-      end
+    attr_accessor(
+      :show_presenter_class,
+      :index_presenter_class,
+      :edit_form_class,
+      :new_form_class
+    )
+
+    def edit_form_class
+      @edit_form_class || default_form_class
     end
 
-    def self.attributes
-      @attributes ||= []
+    def new_form_class
+      @new_form_class || default_form_class
     end
 
-    def self.show_page(*args)
-      @show_page_attributes = args
+    def show_presenter_class
+      @show_presenter_class || default_show_presenter_class
     end
 
-    def self.show_page_attributes
-      @show_page_attributes ||= attributes
+    def index_presenter_class
+      @index_presenter_class || default_index_presenter_class
     end
 
-    def self.index_page(*args)
-      @index_page_attributes = args
+    private
+
+    def model_class
+      self.class.to_s.slice!('Dashboard').constantize
     end
 
-    def self.index_page_attributes
-      @index_page_attributes ||= attributes
+    def defualt_form_class
+      "#{model_class}Form".constantize
     end
 
-    def self.edit_page(*args)
-      @edit_page_attributes = args
+    def default_show_presenter_class
+      "#{model_class}Show".constantize
     end
 
-    def self.edit_page_attributes
-      @edit_page_attributes ||= attributes
-    end
-
-    def self.new_page(*args)
-      @new_page_attributes = args
-    end
-
-    def self.new_page_attributes
-      @new_page_attributes ||= attributes
+    def default_index_presenter_class
+      "#{model_class}Index".constantize
     end
   end
 end

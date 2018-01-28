@@ -32,9 +32,10 @@ Rails.application.routes.draw do
   devise_for :users, path: :admin
 
   namespace :admin do
-    root to: 'settings#index'
+    root to: 'articles#index'
 
     resources :settings
     resources :users
+    resources :articles
   end
 end

@@ -16,7 +16,7 @@ class ResourceResolver
   end
 
   def dashboard
-   ActiveSupport::Inflector.constantize("#{resource_class}Dashboard")
+    ActiveSupport::Inflector.constantize("#{resource_class}Dashboard")
   end
 
   private
