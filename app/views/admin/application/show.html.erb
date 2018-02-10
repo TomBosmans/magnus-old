@@ -1,0 +1,11 @@
+<header>
+  <h1><%= presenter.title %></h1>
+</header>
+
+<% presenter.attributes.each do |attribute|  %>
+  <%= render partial: "fields/#{attribute.type}/show" %>
+<% end %>
+
+<footer>
+  
+</footer>

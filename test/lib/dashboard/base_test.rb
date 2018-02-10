@@ -10,18 +10,13 @@ describe Dashboard::Base do
 
   describe '.attribute' do
     it 'sets attribute on the dashboard' do
-      Dashboard::Base.attribute name: :string
+      Dashboard::Base.attribute :name, type: :string
       assert_equal :name, Dashboard::Base.attributes.first.name
     end
 
     it 'creates Dashboard::Attribute objects' do
-      Dashboard::Base.attribute name: :string
-      assert_equal Dashboard::Attribute, Dashboard::Base.attributes.first.class
-    end
-
-    it 'can take multiple attributes' do
-      Dashboard::Base.attribute name: :string, age: :integer
-      assert_equal 2, Dashboard::Base.attributes.count
+      Dashboard::Base.attribute :name, type: :string
+      assert_equal Attribute, Dashboard::Base.attributes.first.class
     end
   end
 
@@ -42,12 +37,14 @@ describe Dashboard::Base do
 
     describe ".#{page}_attributes" do
       it 'returns attributes if none are set' do
-        Dashboard::Base.attribute name: :string, age: :integer
+        Dashboard::Base.attribute :name, type: :string
+        Dashboard::Base.attribute :age, type: :integer
         assert_equal 2, Dashboard::Base.send("#{page}_attributes").count
       end
 
       it "returns #{page} attributes if assigned" do
-        Dashboard::Base.attribute name: :string, age: :integer
+        Dashboard::Base.attribute :name, type: :string
+        Dashboard::Base.attribute :age, type: :integer
         Dashboard::Base.send(page, :name)
         assert_equal 1, Dashboard::Base.send("#{page}_attributes").count
       end

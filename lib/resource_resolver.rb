@@ -15,10 +15,6 @@ class ResourceResolver
     controller_path_parts.first
   end
 
-  def dashboard
-    ActiveSupport::Inflector.constantize("#{resource_class}Dashboard")
-  end
-
   private
 
   def controller_path_parts

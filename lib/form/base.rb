@@ -16,7 +16,7 @@ module Form
       create_attributes_method(@current_resource)
     end
 
-    def self.field(name, type: :string)
+    def self.field(name, type:)
       field = Form::Field.new(name, resource: @current_resource, type: type)
       fields << field
       create_attr_accessor(field.full_name)

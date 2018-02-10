@@ -14,10 +14,7 @@ gem 'puma', '~> 3.0'
 # Use SASS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem "autoprefixer-rails"
-gem 'bourbon'
-gem 'neat'
-gem 'bitters'
-gem 'refills'
+
 gem 'font-awesome-sass', '~> 4.7.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -27,8 +24,6 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'simple_form'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
-# A Rails engine that helps you put together a super-flexible admin dashboard.
-gem 'administrate'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip'
 # Template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
